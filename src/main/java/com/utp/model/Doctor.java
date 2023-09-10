@@ -16,37 +16,37 @@ public class Doctor {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "doctor_id")
-	private Long			doctorId;
+	private Long	doctorId;
 
 	@ManyToOne
     @JoinColumn(name = "user_id")
-	private User			user;
+	private User	user;
 
 	@ManyToOne
     @JoinColumn(name = "clinic_id")
-    private Clinic clinic;
+    private Clinic 	clinic;
 
 	@ManyToOne
     @JoinColumn(name = "shedule_id")
     private Shedule shedule;
 	
 	@OneToMany(mappedBy = "doctor", cascade = CascadeType.ALL)
-    private List<Appointment> appointments;
+    private List<Appointment> 	appointments;
 
 	@Column(name = "doctor_name")
-	private String		doctorName;
+	private String	doctorName;
 
 	@Column(name = "doctor_dni")
-	private String		doctorDNI;
+	private String	doctorDNI;
 
 	@Column(name = "doctor_address")
-	private String		doctorAddress;
+	private String	doctorAddress;
 
 	@Column(name = "doctor_phone")
-	private String		doctorPhone;
+	private String	doctorPhone;
 
 	@Column(name = "medical_speciality")
-	private String		medicalSpeciality;
+	private MedicalSpeciality	medicalSpeciality;
 
 	public Long getDoctorId() {
 		return doctorId;
@@ -120,11 +120,11 @@ public class Doctor {
 		this.doctorPhone = doctorPhone;
 	}
 
-	public String getMedicalSpeciality() {
+	public MedicalSpeciality getMedicalSpeciality() {
 		return medicalSpeciality;
 	}
 
-	public void setMedicalSpeciality(String medicalSpeciality) {
+	public void setMedicalSpeciality(MedicalSpeciality medicalSpeciality) {
 		this.medicalSpeciality = medicalSpeciality;
 	}
 }

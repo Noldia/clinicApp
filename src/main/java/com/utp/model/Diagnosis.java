@@ -10,11 +10,11 @@ public class Diagnosis {
 	@Column(name = "diagnosis_id")
     private Long diagnosisId;
 
-    private String description;
+	@OneToOne
+	@JoinColumn(name = "appointment_id")
+	private Appointment appointment;
 
-    @OneToOne
-    @JoinColumn(name = "appointment_id")
-    private Appointment appointment;
+    private String description;
 
 	public Long getDiagnosisId() {
 		return diagnosisId;
