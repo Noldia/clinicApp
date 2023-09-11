@@ -2,16 +2,9 @@ package com.utp.model;
 
 import java.util.List;
 
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.*;
 
+@Entity
 public class Patient {
 
 	@Id
@@ -23,10 +16,10 @@ public class Patient {
     @JoinColumn(name = "user_id")
 	private User			user;
 	
-	@OneToOne(mappedBy = "paciente", cascade = CascadeType.ALL)
+	@OneToOne(mappedBy = "patient", cascade = CascadeType.ALL)
     private MedicalRecord medicalRecord;
 	
-	@OneToMany(mappedBy = "paciente", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "patient", cascade = CascadeType.ALL)
     private List<Appointment> appointments;
 
 	@Column(name = "patient_name")

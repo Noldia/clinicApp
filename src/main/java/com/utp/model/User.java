@@ -4,11 +4,9 @@ import java.util.List;
 import java.util.Set;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 
 @Entity
+@Table(name = "account")
 public class User {
 	
 	@Id
@@ -32,18 +30,11 @@ public class User {
 	
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
 	private Set<Receptionist>		receptionists;
-	
-	@NotBlank
-	@NotNull
-	@Email
+
 	private String		email;
-	
-	@NotBlank
-	@NotNull
+
 	private String		username;
-	
-	@NotBlank
-	@NotNull
+
 	private String		password;
 
 	public Long getUserId() {

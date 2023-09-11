@@ -3,19 +3,15 @@ package com.utp.model;
 import java.sql.Time;
 import java.util.List;
 
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 
+@Entity
 public class Shedule {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "shedule_id")
-	private Long			sheduleId;
+	private Long	sheduleId;
 	
 	@OneToMany(mappedBy = "shedule", cascade = CascadeType.ALL)
 	private List<Doctor> doctors;
@@ -24,8 +20,8 @@ public class Shedule {
 	private List<Receptionist> receptionist;
 	
 	@Column(name = "start_time")
-	private Time			startTime;
+	private Time	startTime;
 	
 	@Column(name = "end_time")
-	private Time			endTime;
+	private Time	endTime;
 }
