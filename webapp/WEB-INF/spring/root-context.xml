@@ -19,9 +19,9 @@
 
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="org.postgresql.Driver" />
-		<property name="url" value="jdbc:postgresql://localhost:5432/clinic_app?useSSL=false" />
-		<property name="username" value="postgres" />
-		<property name="password" value="gutemberg92" />
+		<property name="url" value="jdbc:postgresql://batyr.db.elephantsql.com:5432/yfoystaz?useSSL=false" />
+		<property name="username" value="yfoystaz" />
+		<property name="password" value="sZgz0MacWLGfFjcj6WhIKsGc1lIUVcIk" />
 	</bean>
 	<bean id="jpaVendorAdapter" class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
 		<property name="generateDdl" value="true" />
