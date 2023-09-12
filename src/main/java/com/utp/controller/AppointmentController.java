@@ -4,9 +4,9 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.utp.model.Appointment;
 import com.utp.service.AppointmentService;
@@ -28,9 +28,10 @@ public class AppointmentController {
 	}
 	
 	@GetMapping("/listAll")
-	@ResponseBody
-	public List<Appointment> getAppointments() {
-		return appointmentService.getAppointments();
+	public String getAppointments(Model model) {
+		List<Appointment> appointments= appointmentService.getAppointments();
+		model.addAttribute("datos", appointments);
+		return "admin-view";
 	}
 
 

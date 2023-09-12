@@ -2,6 +2,8 @@ package com.utp.model;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -25,6 +27,7 @@ public class Doctor {
     private Shedule shedule;
 	
 	@OneToMany(mappedBy = "doctor", cascade = CascadeType.ALL)
+	@JsonIgnore
     private List<Appointment> 	appointments;
 
 	@Column(name = "doctor_name")
@@ -40,6 +43,7 @@ public class Doctor {
 	private String	doctorPhone;
 
 	@Column(name = "medical_speciality")
+	@Enumerated(EnumType.STRING)
 	private MedicalSpeciality	medicalSpeciality;
 
 	public Long getDoctorId() {
